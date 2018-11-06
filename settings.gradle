@@ -1,2 +1,4 @@
 rootProject.name = 'java-gradle'
 include 'spring-data'
+include 'aspect-oriented-programming'
+include 'embedded-kafka'

@@ -1,5 +1,8 @@
-allprojects {
+ext {
+    springBootVersion = '2.0.3.RELEASE'
+}
 
+allprojects {
     group = 'com.example'
     repositories {
         jcenter()
@@ -7,5 +10,21 @@ allprojects {
 }
 
 subprojects {
+    apply plugin: 'java'
     version = '1.0'
+
+
+    buildscript {
+        repositories {
+            jcenter()
+        }
+    }
+
+    dependencies {
+        // This dependency is found on compile classpath of this component and consumers.
+        compile 'com.google.guava:guava:23.0'
+
+        // Use JUnit test framework
+        testCompile 'junit:junit:4.12'
+    }
 }

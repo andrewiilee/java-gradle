@@ -3,6 +3,7 @@
 # ignore build directories
 .gradle/
 build/
+out/
 
 # ignore IDEA files
 .idea/
