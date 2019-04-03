@@ -18,7 +18,6 @@ apply plugin: 'io.spring.dependency-management'
 
 dependencies {
     compile ("org.springframework.boot:spring-boot-starter-web:${springBootVersion}")
-    testCompile ('org.springframework.kafka:spring-kafka-test')
+    testCompile ("org.springframework.kafka:spring-kafka-test:${springBootVersion}")
+    testCompile('log4j:log4j:1.2.17')
 }
-
-
