@@ -1,16 +1,16 @@
-package com.example.pojo;
+package com.example.student.pojo;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 @Data
-@ToString
-@AllArgsConstructor
+@Builder
 @NoArgsConstructor
+@AllArgsConstructor
 public class Student {
-    private Long id;
+    private int id;
     private String name;
     private String passportNumber;
 }

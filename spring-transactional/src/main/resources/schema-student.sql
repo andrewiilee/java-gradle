@@ -1,4 +1,4 @@
-create table student
+create table if not exists student
 (
    id integer not null,
    name varchar(255) not null,
