@@ -21,8 +21,8 @@ public class EmployeeTest {
     private EmployeeService employeeService;
 
     @Test
-    public void applicationTest() {
-        logger.info("Inserting employee -> {}", employeeService.save(Employee.builder().id(10010).firstName("Job").lastName("Jacob").build()));
+    public void employeeServiceTest() {
+        logger.info("Inserting employee -> {}", employeeService.save(Employee.builder().firstName("Job").lastName("Jacob").build()));
         logger.info("All employees -> {}", employeeService.findAll());
     }
 }

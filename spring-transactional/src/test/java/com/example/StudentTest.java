@@ -22,7 +22,7 @@ public class StudentTest {
     private StudentDAO studentDAO;
 
     @Test
-    public void applicationTest() {
+    public void sudentDAOTest() {
         logger.info("Student id 10001 -> {}", studentDAO.findById(10001));
         logger.info("Inserting student-> {}", studentDAO.insert(Student.builder().id(10010).name("John").passportNumber("A1234657").build()));
         logger.info("Update 10003 student -> {}", studentDAO.update(Student.builder().id(10001).name("Name-Updated").passportNumber("New-Passport").build()));
@@ -30,11 +30,9 @@ public class StudentTest {
         logger.info("All students -> {}", studentDAO.findAll());
     }
 
-    //TODO see if this can connect to a real sql by standing up an independent springboot h2 see 'https://www.baeldung.com/spring-jdbc-jdbctemplate'
-    //TODO dev profile vs real profile so it can connect test vs real
-    //TODO test transactional (see below for infrastructure)
-    //TODO create another DAO with another sql to simulate two DAO write
+
     //TODO create readme to demonstrate SQL creation, H2, namedParamJdbcTemplate power (no more position queries)
+    //TODO write test to demonstrate transactional roll back with two datasource
 }
 
 
