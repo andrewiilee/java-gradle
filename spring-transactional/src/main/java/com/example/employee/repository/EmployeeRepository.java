@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 public interface EmployeeRepository extends CrudRepository<Employee, Integer> {
     List<Employee> findAll();
     Employee save(Employee employee);
+    void deleteEmployeeByFirstName(String firstName);
 }

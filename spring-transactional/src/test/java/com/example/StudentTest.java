@@ -30,9 +30,6 @@ public class StudentTest {
         logger.info("All students -> {}", studentDAO.findAll());
     }
 
-
-    //TODO create readme to demonstrate SQL creation, H2, namedParamJdbcTemplate power (no more position queries)
-    //TODO write test to demonstrate transactional roll back with two datasource
 }
 
 
