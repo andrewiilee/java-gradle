@@ -5,7 +5,7 @@ ext {
 allprojects {
     group = 'com.example'
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -13,18 +13,9 @@ subprojects {
     apply plugin: 'java'
     version = '1.0'
 
-
     buildscript {
         repositories {
-            jcenter()
+            mavenCentral()
         }
-    }
-
-    dependencies {
-        // This dependency is found on compile classpath of this component and consumers.
-        compile 'com.google.guava:guava:23.0'
-
-        // Use JUnit test framework
-        testCompile 'junit:junit:4.12'
     }
 }
