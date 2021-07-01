@@ -5,17 +5,14 @@ import com.example.employee.entity.Employee;
 import com.example.student.dao.StudentDAO;
 import com.example.student.pojo.Student;
 import lombok.AllArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class TransactionalService {
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private EmployeeService employeeService;
     private StudentDAO studentDAO;
 
@@ -34,10 +31,10 @@ public class TransactionalService {
     }
 
     private void saveStudent(Student student) {
-        logger.info("Inserting student-> {}", studentDAO.insert(student));
+        log.info("Inserting student-> {}", studentDAO.insert(student));
     }
 
     private void saveEmployee(Employee employee) {
-        logger.info("Inserting employee -> {}", employeeService.save(employee));
+        log.info("Inserting employee -> {}", employeeService.save(employee));
     }
 }

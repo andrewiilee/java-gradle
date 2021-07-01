@@ -2,9 +2,9 @@ package com.example;
 
 import java.util.Arrays;
 import javax.annotation.PostConstruct;
+
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +12,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@Slf4j
 public class SpringDatabase {
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
-
     @Qualifier("employeeJdbcTemplate")
     private final JdbcTemplate employeeJdbc;
 
@@ -23,7 +22,7 @@ public class SpringDatabase {
 
     @PostConstruct
     private void initDb() {
-        logger.info("****** Creating table: {}, and Inserting test data ******", "Employee");
+        log.info("****** Creating table: {}, and Inserting test data ******", "Employee");
 
         String employeeSQL[] = {
             "drop table employee if exists",
@@ -34,10 +33,10 @@ public class SpringDatabase {
 
         executeSql(employeeSQL, employeeJdbc);
 
-        logger.info("****** Fetching from table: {} ******", "Employee");
+        log.info("****** Fetching from table: {} ******", "Employee");
         employeeJdbc.query("select id,first_name,last_name from employee",
             (rs, i) -> {
-                logger.info("id: {}, first_name: {}, last_name: {}",
+                log.info("id: {}, first_name: {}, last_name: {}",
                     rs.getString("id"),
                     rs.getString("first_name"),
                     rs.getString("last_name"));
@@ -57,7 +56,7 @@ public class SpringDatabase {
 
     private void executeSql(String sqls[], JdbcTemplate jdbcTemplate) {
         Arrays.stream(sqls).forEach(sql -> {
-            logger.info((sql));
+            log.info((sql));
             jdbcTemplate.execute(sql);
         });
     }

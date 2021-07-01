@@ -3,17 +3,15 @@ package com.example;
 import com.example.employee.EmployeeService;
 import com.example.student.dao.StudentDAO;
 import lombok.RequiredArgsConstructor;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @RequiredArgsConstructor
+@Slf4j
 public class Application implements CommandLineRunner {
-
-    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final StudentDAO studentDAO;
     private final EmployeeService employeeService;
@@ -24,7 +22,7 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        logger.info("All students -> {}", studentDAO.findAll());
-        logger.info("All employees -> {}", employeeService.findAll());
+        log.info("All students -> {}", studentDAO.findAll());
+        log.info("All employees -> {}", employeeService.findAll());
     }
 }
